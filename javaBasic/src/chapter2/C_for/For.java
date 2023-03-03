@@ -1,0 +1,143 @@
+package chapter2.C_for;
+
+//	for반복문
+//	규칙이 있는 작업을 반복하는 제어문
+//  일반적으로 반복횟수가 정해져있을 때 사용하는 반복문 
+
+
+public class For {
+
+	public static void main(String[] args) {
+//		반복문을 사용하는 이유
+//		길이가 5인 int타입의 배열(intArray5)을 선언 및 생성
+		int [] intArray5 = new int[5];
+//		intArray5의 각 인덱스에 1~5까지 값을 초기화
+		intArray5[0] = 1;
+		intArray5[1] = 2;
+		intArray5[2] = 3;
+		intArray5[3] = 4;
+		intArray5[4] = 5;
+		
+//		for 반복문
+//		특정한 변수가 증감하면서 조건에 부합하는 동안 반복하는 반복문 
+//		사용방법 :
+//		for(변수선언 혹은 초기화 ; 조건 ; 증감식){ 실행할코드 }
+//		변수 선언 혹은 초기화 : 반복문을 사용할 변수를 선언 혹은 초기화
+//		조건: 반복을 계속하기 위한 조건, 해당조건이true이면 반복, false이면 탈출(종료) 
+//		실행할 코드 :  조건이 true 일 때 실행할 코드 
+		
+//		for (int index = 0 ; index < 5 ; index++) {
+//			intArray5[index] = index+1;
+//		}
+//		
+	
+//		for문의 경우 코드 블럭에 오는 실행할 코드가 한 구문이면 {}제거할 수 있다
+
+//		foreach 반복문
+//		배열의 요소 값을 직접 사용하고자 할 때 배열을 반복하면서 
+//		요소를 하나씩 복사해서 사용할 수 있음
+//		for(배열 요소의 데이터 타입 변수명 : 접근할 배열){ 실행할 코드 }
+//		
+//		System.out.println(intArray5[0]);
+//		System.out.println(intArray5[1]);
+		
+//		System.out.println(intArray5[2]);
+//		System.out.println(intArray5[3]);
+//		System.out.println(intArray5[4]);
+		
+		System.out.println("=======일반for 문======");
+
+		for(int i = 0 ; i <intArray5.length ; i++) {
+			System.out.println(intArray5[i]);
+			intArray5[i] = 10;
+		}
+		
+		for(int number : intArray5) {
+			System.out.println(number);
+		} // 10으로 다 바뀐게 출력됐음
+		
+		System.out.println("=======for each문=======");
+		for(int i = 0 ; i<intArray5.length ; i++) {
+			intArray5[i] = i +1;
+		} //다시 12345로 작업
+		
+		for(int number : intArray5) {
+			System.out.println(number); //12345로 출력
+			number =10; //10을 다 바꿈
+		}
+		for(int number : intArray5) {
+			System.out.println(number); 
+		}
+		
+		System.out.println("================");
+		
+		
+		
+		
+	}
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

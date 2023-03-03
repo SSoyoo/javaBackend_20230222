@@ -1,0 +1,16 @@
+package chapter1.C_dataType;
+
+public class DataType {
+/*
+ * 데이터타입
+ * 각각의 데이터타입은 자바에서 지정한 여러 종류의 타입이 존재
+ * 기본적으로 정수형과 실수형 문자형 논리형이있다.
+ * 추가적으로 참조형 데이터타입이 존재한다. 
+ * 
+ */
+	public static void main(String[] args) {
+	
+
+	}
+
+}

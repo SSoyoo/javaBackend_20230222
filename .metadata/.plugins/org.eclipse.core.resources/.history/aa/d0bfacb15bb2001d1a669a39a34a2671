@@ -1,0 +1,21 @@
+package chapter1.B_Constant;
+
+public class Constant {
+
+	public static void main(String[] args) {
+		
+		int age = 10; // 바꾸면 안된다할게 
+		//사람이라면 무조건 실수, 다른걸 바꾸려다가 실수로 age를 바꿀수도 있잖아 \
+		//그런걸 방지하는 용도로, 아예 실수를 못하도록 해버리는 거 
+		
+		
+		final int width = 1920;
+		final int height = 1080;
+		int size = width * height; // 이걸 보면 이게뭐지? 싶을건데 데이터에다가 이름을 지정해서 
+		
+		
+		
+		
+	}
+
+}

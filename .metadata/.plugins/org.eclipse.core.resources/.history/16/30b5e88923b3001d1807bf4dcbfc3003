@@ -1,0 +1,16 @@
+package chapter1.E_Array;
+
+public class Array {
+/*
+ * 	배열! 
+ *  같은 타입의 변수가 나열된 형태
+ *  배열은 '생성'해서 사용한다 
+ *  
+ */
+	public static void main(String[] args) {
+		 
+		
+		
+	}
+
+}

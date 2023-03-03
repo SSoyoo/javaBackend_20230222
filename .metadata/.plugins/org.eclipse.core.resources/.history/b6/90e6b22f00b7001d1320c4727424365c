@@ -1,0 +1,65 @@
+package example.signup;
+
+import java.util.Scanner;
+
+public class SignUp {
+/*
+ * 회원가입 프로세스 구현  
+ */
+	public static void main(String[] args) {
+		
+//		입력
+//		아이디, 패스워드, 패스워드 확인, 이름 
+	
+//		출력
+//		"회원가입성공!" || "회원가입 실패"(실패- 입력 누락, 아이디중복, 비밀번호 상이)
+		
+		
+//		1. 사용자로부터 아이디, 패스워드, 패스워드 확인, 이름 입력 받음
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("아이디: ");
+		String userId = scanner.nextLine();
+		System.out.println("패스워드: ");
+		String userPassword = scanner.nextLine();
+		System.out.println("비밀번호 확인: ");
+		String passwordCheck = scanner.nextLine();
+		System.out.println("이름: ");
+		String UserName = scanner.nextLine();
+		
+		if(userId.isEmpty()|| userPassword.isEmpty() || passwordCheck.isEmpty() || UserName.isEmpty()) {
+			System.out.println("전부 입력하세요");
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

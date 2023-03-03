@@ -1,0 +1,43 @@
+package chapter1.F_operator;
+
+import java.util.Scanner;
+
+public class test {
+
+	public static void main(String[] args) {
+		
+				
+				Scanner sc = new Scanner(System.in);
+				
+				int t = sc.nextInt();
+			
+				String [] arr = new String[t];
+				
+				StringBuilder p = new StringBuilder();
+			
+			
+
+				for(int i = 0 ; i<arr.length ;i++) {
+
+					int s = sc.nextInt();
+					arr[i] = sc.next();
+					p = null;
+					for(int j = 0  ; j<arr[i].length() ; j++) {
+						for(int k = 0 ; k<s ; k++) {
+							p.append(arr[i].substring(j,j+1));
+						}
+					}
+					System.out.println(p);
+					
+				}
+				
+				
+				
+				
+				
+				
+				
+			
+	}
+
+}

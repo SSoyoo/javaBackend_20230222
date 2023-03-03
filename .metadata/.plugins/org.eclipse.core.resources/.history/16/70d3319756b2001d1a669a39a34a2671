@@ -1,0 +1,11 @@
+package chapter1.A_Variable;
+
+public class Variable {
+
+	public static void main(String[] args) {
+		// 컨트롤 + / 주석 단축키
+		
+		//1. 변수 : 모든 프로그래밍 언어는 데이터를 보관할 수 있는 변수가 존재
+	}
+
+}

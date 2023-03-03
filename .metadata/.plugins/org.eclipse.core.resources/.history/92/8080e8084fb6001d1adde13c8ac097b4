@@ -1,0 +1,30 @@
+package example.signIn;
+
+import java.util.Scanner;
+
+/*
+ * 로그인 프로세스 구현
+ */
+public class SignIn {
+	/*
+	 * 입력 : 아이디, 비밀번호
+	 */
+	
+	public static void main(String[] args) {
+		
+		/*
+		 * 결과 : 성공 & 실패(값을 입력하지 않았을 때,정보가 일치않을 경우)
+		 */
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("아이디와 비밀번호를 입력하세요.");
+		
+		String userId = scanner.nextLine(); 
+		String userPassword = scanner.nextLine();
+		
+		
+		
+	}
+	
+
+}

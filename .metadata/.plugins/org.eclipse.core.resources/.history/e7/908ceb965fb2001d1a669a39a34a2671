@@ -1,0 +1,9 @@
+package chapter1.C_dataType;
+
+public class DataType {
+
+	public static void main(String[] args) {
+
+	}
+
+}

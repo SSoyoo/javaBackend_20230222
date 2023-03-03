@@ -1,0 +1,14 @@
+package chapter1.C_dataType;
+
+public class DataType {
+/*
+ * 데이터타입
+ * 각각의 데이터타입은 자바에서 지정한 여러 종류의 타입이 존재
+ * 
+ */
+	public static void main(String[] args) {
+	
+
+	}
+
+}

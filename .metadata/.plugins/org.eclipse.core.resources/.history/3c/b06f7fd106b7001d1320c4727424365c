@@ -1,0 +1,88 @@
+package example.signup;
+
+import java.util.Scanner;
+
+public class SignUp {
+/*
+ * 회원가입 프로세스 구현  
+ */
+	public static void main(String[] args) {
+		
+//		입력
+//		아이디, 패스워드, 패스워드 확인, 이름 
+	
+//		출력
+//		"회원가입성공!" || "회원가입 실패"(실패- 입력 누락, 아이디중복, 비밀번호 상이)
+		
+		
+//		1. 사용자로부터 아이디, 패스워드, 패스워드 확인, 이름 입력 받음
+		
+		String [] idList = {"qwer" , "asdf", "zxcv"};
+		
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("아이디: ");
+		String userId = scanner.nextLine();
+		System.out.println("패스워드: ");
+		String userPassword = scanner.nextLine();
+		System.out.println("비밀번호 확인: ");
+		String passwordCheck = scanner.nextLine();
+		System.out.println("이름: ");
+		String UserName = scanner.nextLine();
+		
+	
+//		2. 모두 입력 받았는지 검증
+//		string.isBlank() : 문자열이 비었거나 띄어쓰기만으로 구성됐을 때, true 나 false 반환
+		if(userId.isBlank()|| userPassword.isBlank() || 
+				passwordCheck.isBlank() || UserName.isBlank()) {
+			System.out.println("모두 입력하세요");
+			return;
+		}
+		
+//		3. 아이디 중복체크 
+//		//일반for문사용
+//		for(int i = 0 ; i<idList.length ; i++) {
+//			if(userId.equals(idList[i])) { //기준이 userId이기 때문에 
+//				System.out.println("중복되는 아이디입니다");
+//				return;
+//			}
+//		}
+		//for each 사용 : 값변경없이 읽어서 비교만 하니까 foreach가 더 깔끔하다
+		
+		for(String id : idList) {
+			if(userId.equals(id)) {
+				System.out.println("중복되는 아이디입니다");
+				return;
+		}
+		}
+		
+//		4.비밀번호 확인 
+		if(!userPassword.equals(passwordCheck)) {
+			System.out.println("비밀번호가 서로 다릅니다");
+			return;
+		}
+		System.out.println("회원가입완료");
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+	}
+
+}

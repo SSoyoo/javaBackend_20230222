@@ -1,0 +1,12 @@
+package example.signIn;
+/*
+ * 로그인 프로세스 구현
+ * 
+ */
+public class SignIn {
+	
+	public static void main(String[] args) {
+		
+	}
+
+}

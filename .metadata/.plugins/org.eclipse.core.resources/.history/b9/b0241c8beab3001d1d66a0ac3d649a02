@@ -1,0 +1,15 @@
+package chapter2.A_if;
+
+public class If {
+
+	public static void main(String[] args) {
+		
+		if(true) {
+			System.out.println("hello");
+		}
+		
+		
+		
+	}
+
+}

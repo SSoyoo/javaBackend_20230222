@@ -1,0 +1,17 @@
+package chapter2.B_Switch;
+
+//switch 조건문
+//비교할 변수를  case값과 비교하여 같은 case를 찾아서 
+//해당 case 구문부터 끝까지 실행
+
+
+public class Switch {
+
+	public static void main(String[] args) {
+		
+		
+		
+		
+	}
+
+}

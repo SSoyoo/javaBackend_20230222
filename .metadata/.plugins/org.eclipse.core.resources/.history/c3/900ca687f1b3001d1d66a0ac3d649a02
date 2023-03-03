@@ -1,0 +1,17 @@
+package chapter2.A_if;
+
+public class test {
+
+	public static void main(String[] args) {
+		
+		StringBuilder sb = new StringBuilder();
+//		sb= null;
+//		System.out.println(sb);
+//		이렇게 하면 null 인데 왜 그 반복문안에서는 안되지?
+		
+		sb = null;
+		sb.append("ddd");
+		System.out.println(sb);
+	}
+
+}
