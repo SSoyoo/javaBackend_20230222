@@ -52,7 +52,7 @@ class Circle{
 		
 		System.out.println("Circle이 생성됩니다");
 		this.radius = radius; //this = 인스턴스 자기자신 , 인스턴스 변수를 지칭하고 싶을 때는 this를 쓴다.
-		this.diameter = 2*radius;
+		this.diameter = 2 * radius;
 		this.circumference = 3.14 * 2 * radius;
 		this.area = 3.14 * radius * radius;
 	
@@ -80,32 +80,11 @@ public class Constructor {
 //
 		System.out.println(circle1.area); // 기본생성자에서 이미 반지름을 10이라 하고 생성했으니 
 		System.out.println(circle2.area); 
-
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
 		
 	}
 
 }
+
+
+
+
