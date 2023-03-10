@@ -2,10 +2,13 @@ package chapter5.C_DateTime;
 
 import java.awt.Label;
 import java.text.SimpleDateFormat;
+import java.time.DayOfWeek;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
+import java.time.Month;
+import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.Date;
 
@@ -91,16 +94,40 @@ public class DateTime {
 		System.out.println(localDateTimeof);
 		
 		
+//		특정 날짜 혹은 시간 가져오기
+//		 .get XXX();
 		
+		int year = localDateTime.getYear();
+		int month = localDateTime.getMonthValue();
+		System.out.println(month); //3
+		Month enumMonth = localDateTime.getMonth();
+		System.out.println(enumMonth);//march
+		int dayofYear = localDate.getDayOfYear();
+		int dayofMonth = localDate.getDayOfMonth();
+//		getDayOfYear 이번년도에서 몇번째일인지 
+//		getDayOfMonth 며칠 
 		
+		DayOfWeek dayofWeek = localDateTime.getDayOfWeek();
 		
+		boolean isLeapYear = localDate.isLeapYear();
 		
+		int hour = localDateTime.getHour();
+		int minute = localDateTime.getSecond();
+		int second = localDateTime.getSecond();
+		int nano = localDateTime.getNano();
 		
+//		특정 날짜 및 시간 변경(직접변경, 더하기, 빼기)
+//		직접변경 : withXXX(int 타입 데이터)
+//		더하기 - 빼기 : plusXXX(long타입) , minusXXX(long 타입 데이터);
 		
+		localDateTime.withYear(2012).plusWeeks(4).minusHours(9);
+		localDateTime.withDayOfYear(1).plusMinutes(50).minusNanos(50000);
 		
+		//로컬데이트타임에 어떤 지역인지 지정해두고 인스턴트로 바꿈
+		Instant instant = localDateTime.atZone(ZoneId.systemDefault()).toInstant();
+		Date datetime = Date.from(instant);
 		
-		
-		
+		System.out.println(datetime);
 		
 		
 		

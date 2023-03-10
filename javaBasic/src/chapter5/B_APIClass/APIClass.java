@@ -1,7 +1,10 @@
 package chapter5.B_APIClass;
 
+import java.util.HashSet;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.Set;
+import java.util.TreeSet;
 
 /*
  * API 클래스
@@ -85,38 +88,53 @@ public class APIClass {
 //		random.nextlong(); 무작위의 long 형 졍수
 //		random.nextInt(최대값); 최대값보다 작은 int 형 정수 
 		
-		int randomNumber = random.nextInt(3);
-		System.out.println(randomNumber);
-
-		
-		int [] lotto = new int[6];
-		boolean equal = false;
-		int lottoNumber = random.nextInt(45)+1;
-		
-		for (int i = 0; i<lotto.length ; i++) {
-			
-		
-			for(int j = 0 ; j<i ; j++) {
-			
-				if(lotto[j] == lotto[i]) {
-				equal =true;
-			
-				}
-				
-				if(equal) {
-				--i ;
-				continue;
-				}
-			}
-		}
-		
 	
-		for(int lottoNumners : lotto ) {
-			System.out.print(lottoNumners+ " ");
+		// .nextInt(): 무작위의 int 형 정수
+		// .nextLong(): 무작위의 long 형 정수
+		// .nextInt(최대값): 최대값보다 작은 int형 정수
+//		
+//		int randomNumber = random.nextInt(3);
+//		System.out.println(randomNumber);
+		
+//		int[] lotto = new int[6];
+//		
+//		for (int index = 0; index < lotto.length; index++) {
+//			
+//			boolean equal = false;
+//			
+//			for (int subIndex = 0; subIndex < index; subIndex++) {
+//				if (lotto[subIndex] == lotto[index]) {
+//					System.out.println(lotto[subIndex] + " " + lotto[index]);
+//					equal = true;
+//				}
+//			}
+//			
+//			if (equal) continue;
+//			
+//			lotto[index] = random.nextInt(45) + 1;
+//		}
+//		
+//		for (int lottoNumber: lotto) {
+//			System.out.print(lottoNumber + " ");
+//		}
+		
+		
+		
+		Set<Integer> lottoSet = new TreeSet<>();
+		
+//		for(int i = 0 ; i<6 ; i++) {
+//			lottoSet.add(random.nextInt(45)+1);
+//		}
+//		
+//		System.out.println(lottoSet);
+		
+		while(lottoSet.size()<6) {
+			int randomNumber = random.nextInt(45)+1;
+			lottoSet.add(randomNumber);
 		}
-		
-		
-		
+
+		System.out.println(lottoSet);
+
 		
 		
 		
