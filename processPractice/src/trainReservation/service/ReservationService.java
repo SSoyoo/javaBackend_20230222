@@ -11,6 +11,8 @@ import trainReservation.entity.Seat;
 import trainReservation.entity.StopStation;
 import trainReservation.entity.Train;
 
+//service class(계층)
+//실제 비즈니스 로직을 담당 
 public class ReservationService {
 	
 	private static List<Train> trains = new ArrayList<>();
