@@ -78,11 +78,29 @@ public class GetTrainListDto {
 	}
 	
 	
+	public boolean isEmpty() {
+		
+		return this.depatureStation.isBlank() || 
+				this.arrivalStaton.isBlank() ||
+				this.depatureTime.isBlank();
+
+		}
+	public boolean isEqualStation() {
+		return this.depatureStation.equals(this.arrivalStaton);
+	}
+	
+	public boolean isEqualDepartureStation(String station) {
+		return this.depatureStation.equals(station);
+		
+	}
+	
+	public boolean isEqualArrivalStation(String station) {
+		return this.arrivalStaton.equals(station);
+	}
 	
 	
 	
 	
 	
 	}
-	
 	
