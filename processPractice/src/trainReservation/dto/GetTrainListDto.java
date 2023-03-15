@@ -47,7 +47,7 @@ public class GetTrainListDto {
 		return arrivalStaton;
 	}
 
-	public String getDepatureTime() {
+	public String getDepartureTime() {
 		return depatureTime;
 	}
 
@@ -63,7 +63,7 @@ public class GetTrainListDto {
 		this.arrivalStaton = arrivalStaton;
 	}
 
-	public void setDepatureTime(String depatureTime) {
+	public void setDepartureTime(String depatureTime) {
 		this.depatureTime = depatureTime;
 	}
 
