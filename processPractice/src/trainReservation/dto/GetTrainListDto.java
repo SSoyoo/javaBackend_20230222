@@ -39,11 +39,11 @@ public class GetTrainListDto {
 		this.numberOfPeople = numberOfPeople;
 	}
 
-	public String getDepatureStation() {
+	public String getDepartureStation() {
 		return depatureStation;
 	}
 
-	public String getArrivalStaton() {
+	public String getArrivalStation() {
 		return arrivalStaton;
 	}
 

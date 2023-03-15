@@ -19,8 +19,9 @@ import trainReservation.entity.Train;
 	
 	public class ReservationService {
 		
-		private static List<Train> trains = new ArrayList<Train>();
-		private static List<Cost> costs = new ArrayList<Cost>();
+		private static List<Train> trains = new ArrayList<>();
+		private static List<Cost> costs = new ArrayList<>();
+		private static List<ResevationInfo> resevations = new ArrayList<>();
 
 		private static DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
 
@@ -83,10 +84,97 @@ import trainReservation.entity.Train;
 			
 		}
 		
-		public ResevationInfo postReservation(PostReservationDto dto) {
+		public ResevationInfo postReservation(PostReservationDto postReservationDto, GetTrainListDto getTrainListDto ) {
 			
 			Train train = null;
-			return null;
+			
+			for(Train trainItem : trains) {
+				if(postReservationDto.isEqualTrainNumber(trainItem.getTrainNumber())) {
+					break;
+				}
+			}
+			
+			if(train == null) {
+				return null;
+			}
+			
+			boolean designationState = true;
+			List<Seat> seats = train.getSeats();
+			List<String> inputSeatNumber = postReservationDto.getSeats();
+			
+			for(int i = 0 ; i < seats.size() ; i++) {
+				
+				Seat seat = seats.get(i);
+				
+				for(String seatNumber : inputSeatNumber) {
+					if(!seat.getSeatNumber().equals(seatNumber))
+						continue;
+					
+					if(seat.isSeatStatus()) {
+						designationState = false;
+						break;
+					}
+					
+					seat.setSeatStatus(true);
+					break;
+				}
+				
+				if(!designationState) break;
+				
+			}
+			
+			if(!designationState) {
+				System.out.println("좌석배정 실패");
+				return null;
+			}
+			
+			int totalCost = 0;
+			
+			for(Cost cost : costs) {
+				
+				boolean isEqualDepartureStation = 
+						getTrainListDto.isEqualDepartureStation(cost.getDepatureStation());
+				boolean isEqualArrivalStation =
+						getTrainListDto.isEqualArrivalStation(cost.getArrivalStation());
+						
+				
+				if(!isEqualArrivalStation || !isEqualDepartureStation) continue;
+				
+				totalCost = cost.getAmount() * getTrainListDto.getNumberOfPeople();
+				break;
+			}
+			
+			
+			
+			String departureTime = "";
+			String arrivalTime ="";
+			
+			for(StopStation stopStation : train.getStopStations()) {
+				
+				
+				boolean isEqualDepartureStation = 
+						getTrainListDto.isEqualDepartureStation(stopStation.getDepatureTime());
+				
+				boolean isEqualArrivalStation =
+					getTrainListDto.isEqualArrivalStation(stopStation.getDepatureTime());
+						
+				if(isEqualDepartureStation )departureTime = stopStation.getDepatureTime();
+				if(isEqualArrivalStation) arrivalTime = stopStation.getArrivalTime();
+			}
+			
+			ResevationInfo resevationInfo = new ResevationInfo(
+					postReservationDto.getTrainNumber(),
+					postReservationDto.getSeats(),
+					getTrainListDto.getDepartureStation(),
+					departureTime, // 이게 뭐지?
+					getTrainListDto.getArrivalStation(),
+					arrivalTime,
+					totalCost
+					
+					);
+			
+			resevations.add(resevationInfo);
+			return resevationInfo;
 		}
 		
 		private static void initData() {
