@@ -1,5 +1,7 @@
 package trainReservation;
 
+import java.util.Scanner;
+
 import trainReservation.controller.ReservationController;
 
 public class MainApplication {
@@ -9,12 +11,31 @@ public class MainApplication {
 
 	public static void main(String[] args) {
 		
-		reservationController.reservation();
+		while(true) {
+			
+			Scanner scanner = new Scanner(System.in);
+			
+			String endPoint = scanner.nextLine();
+			
+			if(endPoint.equals("POST /reservation")) {
+				reservationController.reservation();
+			}
+			if(endPoint.equals("Get /reservation")) {
+				reservationController.getReservationInfo();
+			}
+				
+			
+			reservationController.reservation();
+			reservationController.getReservationInfo();
+			
+			
+		}
 		
-	
+		
+		
+		
 	
 	}
 	
 }
 
-	

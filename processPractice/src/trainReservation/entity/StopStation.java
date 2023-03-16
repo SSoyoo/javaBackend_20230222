@@ -9,7 +9,7 @@ public class StopStation {
 	public StopStation() {
 	}
 
-	public StopStation(String stationName, String depatureTime, String arrivalTime) {
+	public StopStation(String stationName, String arrivalTime,String depatureTime) {
 	
 		StationName = stationName;
 		this.depatureTime = depatureTime;

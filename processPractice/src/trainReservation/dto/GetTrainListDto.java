@@ -75,7 +75,7 @@ public class GetTrainListDto {
 	public String toString() {
 		return "GetTrainListDto [depatureStation=" + depatureStation + ", arrivalStaton=" + arrivalStaton
 				+ ", depatureTime=" + depatureTime + ", numberOfPeople=" + numberOfPeople + "]";
-	}
+	} 
 	
 	
 	public boolean isEmpty() {

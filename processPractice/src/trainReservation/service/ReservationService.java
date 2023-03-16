@@ -5,6 +5,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
+import trainReservation.dto.GetReservationDto;
 import trainReservation.dto.GetTrainListDto;
 import trainReservation.dto.PostReservationDto;
 import trainReservation.entity.Cost;
@@ -43,6 +44,8 @@ import trainReservation.entity.Train;
 					String stopStationName = stopStations.get(stopStationIndex).getStationName();
 					
 					if (!dto.isEqualDepartureStation(stopStationName)) continue;
+					
+					if(stopStation.getDepatureTime().equals("")) continue;
 					
 					LocalTime stationDepartureTime = LocalTime.parse(stopStation.getDepatureTime(), timeFormatter);
 					
@@ -83,18 +86,20 @@ import trainReservation.entity.Train;
 			return possibleTrains;
 			
 		}
-		
-		public ResevationInfo postReservation(PostReservationDto postReservationDto, GetTrainListDto getTrainListDto ) {
+		//실제 기차를 예야갛는 로직
+		public ResevationInfo postReservation(PostReservationDto postReservationDto, GetTrainListDto getTrainListDto) {
 			
-			Train train = null;
+			Train train = null; // 예약하려는 기차?
 			
 			for(Train trainItem : trains) {
 				if(postReservationDto.isEqualTrainNumber(trainItem.getTrainNumber())) {
+					train = trainItem;
 					break;
 				}
 			}
 			
 			if(train == null) {
+				System.out.println("존재하지 않는 열차번호입니다");
 				return null;
 			}
 			
@@ -176,6 +181,28 @@ import trainReservation.entity.Train;
 			resevations.add(resevationInfo);
 			return resevationInfo;
 		}
+		
+		public ResevationInfo getResevationInfo(GetReservationDto getReservationDto) {
+			
+			//예약정보저장 변수
+			ResevationInfo resevationInfo = null;
+			
+			String reservationNumber = getReservationDto.getReservationNumber();
+			for(ResevationInfo item: resevations) {
+				boolean isEqualReservationNumber =
+						reservationNumber.equals(item.getReservationNumber());
+				
+				if(isEqualReservationNumber) continue;
+				resevationInfo = item;
+				break;
+			
+			}
+		
+			return resevationInfo;
+			
+		}
+		
+		
 		
 		private static void initData() {
 			
