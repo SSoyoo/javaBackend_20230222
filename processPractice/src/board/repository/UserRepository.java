@@ -10,7 +10,7 @@ public class UserRepository {
 		private static List<User> userTable = new ArrayList<>();
 		
 		public User findByEmail(String email) {
-			
+				
 			User result = null;
 			for(User user : userTable) {
 				if(user.getEmail().equals(email)) {
@@ -23,12 +23,12 @@ public class UserRepository {
 		
 		public boolean existsByEmail(String email) {
 			
-			boolean result = true;
+			boolean result = false;
 			
 			for(User user : userTable) {
 				
 				if(user.getEmail().equals(email)) {
-					result = false;
+					result = true; ;
 					break;
 				}
 			}

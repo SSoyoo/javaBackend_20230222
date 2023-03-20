@@ -1,5 +1,6 @@
 package board.service;
 
+
 import board.common.constant.ResponseMessage;
 import board.dto.repose.ResponseDto;
 import board.dto.repose.user.SignInResponseDto;
@@ -36,7 +37,7 @@ public class UserService {
 		User user = new User(dto);
 		userRepository.save(user);
 		
-		return new ResponseDto<>(true,ResponseMessage.SUCESS,true);
+		return new ResponseDto<>(true,ResponseMessage.SUCCESS,true);
 	}
 	
 	
@@ -60,7 +61,7 @@ public class UserService {
 		
 		data = new SignInResponseDto(user);
 		
-		return new ResponseDto<>(true,ResponseMessage.SUCESS,data);
+		return new ResponseDto<>(true,ResponseMessage.SUCCESS,data);
 		
 		
 	}

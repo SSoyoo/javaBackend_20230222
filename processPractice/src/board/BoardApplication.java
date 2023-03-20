@@ -5,8 +5,10 @@ import java.util.Scanner;
 import board.common.constant.HttpStatus;
 import board.controller.BoardController;
 import board.controller.UserController;
+import board.dto.request.board.PostBoardDto;
 import board.dto.request.user.SignInDto;
 import board.dto.request.user.SignUpDto;
+import trainReservation.dto.PostReservationDto;
 
 public class BoardApplication {
 	
@@ -15,6 +17,15 @@ public class BoardApplication {
 	
 	private static final String SIGN_UP ="POST /sigh-up";
 	private static final String SIGN_IN ="POST /sign-in";
+	
+	private static final String POST_BOARD = "POST /board";
+	
+	private static final String GET_BOARD = "GET /board";
+	private static final String GET_BOARD_LIST = "GET /board/list";
+	
+	private static final String PATCH_BOARD = "PATCH /board";
+	private static final String DELETE_BOARD = "DELETE /board";
+
 	
 	public static void main(String[] args) {
 		
@@ -25,7 +36,7 @@ public class BoardApplication {
 			
 			switch(endpoint) {
 			
-			case "SIGN_UP":
+			case SIGN_UP :
 				
 				SignUpDto signUpDto = new SignUpDto();
 				
@@ -55,7 +66,7 @@ public class BoardApplication {
 				userController.signUp(signUpDto);
 				break;
 				
-			case "SIGN_IN":
+			case SIGN_IN:
 				
 				SignInDto signInDto = new SignInDto();
 				System.out.println("이메일 주소:");
@@ -65,9 +76,48 @@ public class BoardApplication {
 				
 //				System.out.println(signInDto);
 				userController.signIn(signInDto);
+				break;
 				
+			case POST_BOARD :
+				
+				PostBoardDto postBoardDto = new PostBoardDto();
+				
+				System.out.println("제목: ");
+				postBoardDto.setTitle(scanner.nextLine());
+				
+				System.out.println("내용: ");
+				postBoardDto.setContent(scanner.nextLine());
+				
+				System.out.print("이미지: ");
+				postBoardDto.setBoardImageUrl(scanner.nextLine());
+				
+				System.out.println("작성자 이메일: ");
+				postBoardDto.setWriterEmail(scanner.nextLine());
+				
+				boardController.postBoard(postBoardDto);
+				
+			case GET_BOARD_LIST :
+				
+				boardController.getBoardList();
+				break;
+			
+			case GET_BOARD: 
+				int boardNumber = 0;
+				
+				try {
+					System.out.println("게시물번호 : ");
+					boardNumber = scanner.nextInt();
+					
+				}catch (Exception exception) {
+					exception.printStackTrace();
+					continue;
+				}
+				
+				boardController.getBoard(boardNumber);
 				default:
 					System.out.println(HttpStatus.NOT_FOUND);
+		
+			
 			}//스위치
 			
 			
@@ -77,6 +127,8 @@ public class BoardApplication {
 		}//while문
 
 
+		
+		
 	} //메인메소드
 
 }// 클래스 끝 
