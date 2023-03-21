@@ -11,5 +11,7 @@ public interface ResponseMessage {
 	
 	public static final String FAIL_SIGN_IN = "Sign in Failed";
 	public static final String NOT_EXIST_BOARD = "Does Not Exist Board";
+	
+	public static final String NOT_PERMISSION = "Do Not have Permission.";
 
 }

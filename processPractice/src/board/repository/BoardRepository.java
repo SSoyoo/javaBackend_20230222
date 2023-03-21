@@ -34,13 +34,16 @@ public class BoardRepository {
 	public Board findByBoardNumber(int boardNumber) {
 		
 		Board result = null;
+		
 		for(Board board : boardTable) {
+			
 			if(board.getBoardNumber() == boardNumber) {
 				result = board;
 				break;
 			}
 		}
-		return result;
+		
+		return result;	
 	}
 	
 	public List<Board> findBy(){
@@ -49,4 +52,19 @@ public class BoardRepository {
 		
 	}
 	
+	public void deleteByBoardNumber(int boardNumber) {
+		
+		for(int i = 0 ; i<boardTable.size() ; i++) {
+			Board board = boardTable.get(i);
+			if(board.getBoardNumber() == boardNumber) {
+				boardTable.remove(board);
+				break;
+			}
+		}
+	}
+
+
+
+
+
 }

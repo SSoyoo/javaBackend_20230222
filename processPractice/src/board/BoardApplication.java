@@ -5,6 +5,7 @@ import java.util.Scanner;
 import board.common.constant.HttpStatus;
 import board.controller.BoardController;
 import board.controller.UserController;
+import board.dto.request.board.PatchBoardDto;
 import board.dto.request.board.PostBoardDto;
 import board.dto.request.user.SignInDto;
 import board.dto.request.user.SignUpDto;
@@ -95,6 +96,7 @@ public class BoardApplication {
 				postBoardDto.setWriterEmail(scanner.nextLine());
 				
 				boardController.postBoard(postBoardDto);
+				break;
 				
 			case GET_BOARD_LIST :
 				
@@ -102,33 +104,85 @@ public class BoardApplication {
 				break;
 			
 			case GET_BOARD: 
+				
 				int boardNumber = 0;
 				
 				try {
 					System.out.println("게시물번호 : ");
 					boardNumber = scanner.nextInt();
 					
-				}catch (Exception exception) {
+				} catch (Exception exception) {
 					exception.printStackTrace();
 					continue;
 				}
 				
 				boardController.getBoard(boardNumber);
+				
+				break;
+				
+			case PATCH_BOARD : 
+				
+				PatchBoardDto patchBoardDto = new PatchBoardDto(); 
+				try {
+					
+					System.out.println("게시물번호: ");
+					String patchBoardNumberString = scanner.nextLine();
+					
+					patchBoardDto.setBoardNumber(Integer.parseInt(patchBoardNumberString));
+					
+					System.out.println("제목: ");
+					patchBoardDto.setTitle(scanner.nextLine());
+					
+					System.out.println("내용: ");
+					patchBoardDto.setContent(scanner.nextLine());
+					
+					System.out.println("이미지: ");
+					patchBoardDto.setBoardImageUrl(scanner.nextLine());
+	
+					System.out.println("이메일: ");
+					patchBoardDto.setEmail(scanner.nextLine());
+					
+					
+				}catch (Exception exception) {
+					exception.printStackTrace();
+					continue;
+				}
+				
+				boardController.patchBoard(patchBoardDto);
+				
+				break;
+			case DELETE_BOARD:
+				
+				int deleteBoardNumber =0;
+				String deleteEmail = null;
+				
+				
+				try {
+					System.out.println("게시물번호");
+					deleteBoardNumber = Integer.parseInt(scanner.nextLine());
+					System.out.println("이메일");
+					deleteEmail = scanner.nextLine();
+			
+					
+				}catch (Exception e) {
+					e.printStackTrace();
+					continue;
+				}
+				
+				boardController.deleteBoard(deleteBoardNumber,deleteEmail);
+				
+				break;
+				
+				
 				default:
 					System.out.println(HttpStatus.NOT_FOUND);
 		
 			
 			}//스위치
 			
-			
-			
-			
-			
 		}//while문
-
-
-		
 		
 	} //메인메소드
-
+	
+	
 }// 클래스 끝 

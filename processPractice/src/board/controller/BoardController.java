@@ -1,12 +1,17 @@
 package board.controller;
 
+
+
 import java.util.List;
 
 import board.common.constant.HttpStatus;
 import board.dto.repose.ResponseDto;
+import board.dto.repose.board.DeleteBoardResponseDto;
 import board.dto.repose.board.GetBoardListResponseDto;
 import board.dto.repose.board.GetBoardResponseDto;
+import board.dto.repose.board.PatchBoardResponseDto;
 import board.dto.repose.board.PostBoardResponseDto;
+import board.dto.request.board.PatchBoardDto;
 import board.dto.request.board.PostBoardDto;
 import board.service.BoardService;
 
@@ -53,5 +58,72 @@ public class BoardController {
 		System.out.println(response);
 		
 	}
+	
+	public void patchBoard(PatchBoardDto dto) {
+		
+		if(dto.auth()) {
+			System.out.println(HttpStatus.UNAUTHORIZED);
+			return;
+		}
+		if(dto.valid()) {
+			System.out.println(HttpStatus.BAD_REQUSET);
+			return;
+		}
+		
+		ResponseDto<PatchBoardResponseDto> response = boardService.patchBoard(dto);
+		System.out.println(response);
+	}
+	
+	public void deleteBoard(int boardNumber, String email) {
+		
+		boolean auth = email.isBlank();
+		
+		if(auth) {
+			System.out.println(HttpStatus.UNAUTHORIZED);
+			return;
+		}
+		
+		boolean valid = boardNumber <= 0;
+		
+		if(valid) {
+			System.out.println(HttpStatus.BAD_REQUSET);
+			return;
+		}
+	
+		ResponseDto<List<DeleteBoardResponseDto>> response =
+				boardService.deleteBoard(boardNumber,email);
+		System.out.println(response);
+				
+		
+	}
+	
+	
+	
+	
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
